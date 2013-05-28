@@ -1,0 +1,129 @@
+<project>
+  <Metadata>
+    <metadata>
+      <PackageName>Sitecore Feedback Module</PackageName>
+      <Author>Demo Team VN</Author>
+      <Version>1.0.0</Version>
+      <Revision />
+      <License />
+      <Comment />
+      <Attributes />
+      <Readme />
+      <Publisher>myu</Publisher>
+      <PostStep>Sitecore.Feedback.Module.BusinessLayer.Configuration.PostStep, Sitecore.Feedback.Module</PostStep>
+      <PackageID />
+    </metadata>
+  </Metadata>
+  <SaveProject>True</SaveProject>
+  <Sources>
+    <xfiles>
+      <Entries>
+        <x-item>/App_Config/Include/Sitecore.Feedback.Module.config</x-item>
+      </Entries>
+      <Converter>
+        <FileToEntryConverter>
+          <Root>/</Root>
+          <Transforms>
+            <InstallerConfigurationTransform>
+              <Options>
+                <BehaviourOptions>
+                  <ItemMode>Undefined</ItemMode>
+                  <ItemMergeMode>Undefined</ItemMergeMode>
+                </BehaviourOptions>
+              </Options>
+            </InstallerConfigurationTransform>
+          </Transforms>
+        </FileToEntryConverter>
+      </Converter>
+      <Include />
+      <Exclude />
+      <Name>Config file</Name>
+    </xfiles>
+    <xfiles>
+      <Entries>
+        <x-item>/bin/Sitecore.Feedback.Module.dll</x-item>
+      </Entries>
+      <Converter>
+        <FileToEntryConverter>
+          <Root>/</Root>
+          <Transforms />
+        </FileToEntryConverter>
+      </Converter>
+      <Include />
+      <Exclude />
+      <Name>Feedback dll</Name>
+    </xfiles>
+    <xfiles>
+      <Entries>
+        <x-item>/sitecore modules/Shell/Sitecore Feedback Module/</x-item>
+        <x-item>/sitecore modules/Shell/Sitecore Feedback Module/App_Config/</x-item>
+        <x-item>/sitecore modules/Shell/Sitecore Feedback Module/App_Config/Sitecore.Feedback.Module.config</x-item>
+        <x-item>/sitecore modules/Shell/Sitecore Feedback Module/bin/</x-item>
+        <x-item>/sitecore modules/Shell/Sitecore Feedback Module/BusinessLayer/</x-item>
+        <x-item>/sitecore modules/Shell/Sitecore Feedback Module/BusinessLayer/Configuration/</x-item>
+        <x-item>/sitecore modules/Shell/Sitecore Feedback Module/BusinessLayer/Model/</x-item>
+        <x-item>/sitecore modules/Shell/Sitecore Feedback Module/css/</x-item>
+        <x-item>/sitecore modules/Shell/Sitecore Feedback Module/js/</x-item>
+        <x-item>/sitecore modules/Shell/Sitecore Feedback Module/js/feedback.js</x-item>
+        <x-item>/sitecore modules/Shell/Sitecore Feedback Module/js/jquery.cookie.js</x-item>
+        <x-item>/sitecore modules/Shell/Sitecore Feedback Module/js/jquery-1.9.1.min.js</x-item>
+        <x-item>/sitecore modules/Shell/Sitecore Feedback Module/PresentationLayer/</x-item>
+        <x-item>/sitecore modules/Shell/Sitecore Feedback Module/PresentationLayer/FeedbackErrorPage.aspx</x-item>
+        <x-item>/sitecore modules/Shell/Sitecore Feedback Module/PresentationLayer/View/</x-item>
+        <x-item>/sitecore modules/Shell/Sitecore Feedback Module/PresentationLayer/View/EmailTemplate.html</x-item>
+        <x-item>/sitecore modules/Shell/Sitecore Feedback Module/Properties/</x-item>
+        <x-item>/sitecore modules/Shell/Sitecore Feedback Module/Properties/AssemblyInfo.cs</x-item>
+        <x-item>/sitecore modules/Shell/Sitecore Feedback Module/Sitecore.Feedback.Module.csproj</x-item>
+      </Entries>
+      <Converter>
+        <FileToEntryConverter>
+          <Root>/</Root>
+          <Transforms>
+            <InstallerConfigurationTransform>
+              <Options>
+                <BehaviourOptions>
+                  <ItemMode>Undefined</ItemMode>
+                  <ItemMergeMode>Undefined</ItemMergeMode>
+                </BehaviourOptions>
+              </Options>
+            </InstallerConfigurationTransform>
+          </Transforms>
+        </FileToEntryConverter>
+      </Converter>
+      <Include />
+      <Exclude />
+      <Name>Feedback Module Files</Name>
+    </xfiles>
+    <xfiles>
+      <Entries>
+        <x-item>/sitecore/service/FeedbackErrorPage.aspx</x-item>
+      </Entries>
+      <Converter>
+        <FileToEntryConverter>
+          <Root>/</Root>
+          <Transforms>
+            <InstallerConfigurationTransform>
+              <Options>
+                <BehaviourOptions>
+                  <ItemMode>Undefined</ItemMode>
+                  <ItemMergeMode>Undefined</ItemMergeMode>
+                </BehaviourOptions>
+              </Options>
+            </InstallerConfigurationTransform>
+          </Transforms>
+        </FileToEntryConverter>
+      </Converter>
+      <Include />
+      <Exclude />
+      <Name>Feedback Error Page</Name>
+    </xfiles>
+  </Sources>
+  <Converter>
+    <TrivialConverter>
+      <Transforms />
+    </TrivialConverter>
+  </Converter>
+  <Include />
+  <Exclude />
+  <Name />
+</project>
