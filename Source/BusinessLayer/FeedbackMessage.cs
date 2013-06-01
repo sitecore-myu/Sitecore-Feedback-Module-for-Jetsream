@@ -2,6 +2,7 @@
 namespace Sitecore.Feedback.Module.BusinessLayer
 {
   using Sitecore.Diagnostics;
+  using Sitecore.Feedback.Module.BusinessLayer.Utils;
   using System;
   using System.Net.Mail;
   using System.Text;
@@ -15,7 +16,7 @@ namespace Sitecore.Feedback.Module.BusinessLayer
         var message = new MailMessage();
         var fromAddress = new MailAddress(userEmail, userEmail);
         message.From = fromAddress;
-        var feedbackRecipients = Sitecore.Configuration.Settings.GetSetting("Feedback.Recipients");
+        var feedbackRecipients = ConfigurationsUtil.GetRecipients();
         if (feedbackRecipients != null)
         {
           var arrayFeedbackRecipients = feedbackRecipients.Split(',');
@@ -25,7 +26,7 @@ namespace Sitecore.Feedback.Module.BusinessLayer
             message.To.Add(toAddress);
           }
         }
-        message.Subject = Sitecore.Configuration.Settings.GetSetting("Feedback.Message.Subject");
+        message.Subject = ConfigurationsUtil.GetSubject();
         message.SubjectEncoding = Encoding.UTF8;
         message.IsBodyHtml = true;
         message.BodyEncoding = Encoding.UTF8;

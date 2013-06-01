@@ -1,10 +1,5 @@
 ﻿$(document).ready(function () {
     
-    $(".log_link").click(function () {
-        $(".log_message").toggle('slow');
-        return false;
-    });
-
     var countHistorySave = 10;
     
     var sortJson = function (data, key, way) {

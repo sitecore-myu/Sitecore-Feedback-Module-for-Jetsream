@@ -43,9 +43,15 @@
     <Reference Include="Newtonsoft.Json">
       <HintPath>..\bin\Newtonsoft.Json.dll</HintPath>
     </Reference>
+    <Reference Include="Sitecore.Client, Version=6.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\bin\Sitecore.Client.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
     <Reference Include="Sitecore.Kernel">
       <HintPath>..\bin\Sitecore.Kernel.dll</HintPath>
     </Reference>
+    <Reference Include="System.ServiceModel" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -65,15 +71,28 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="css\FeedbackErrorPage.css" />
+    <Content Include="img\sprite.png" />
     <Content Include="js\jquery-1.9.1.min.js" />
+    <Content Include="PresentationLayer\ControlPanel\ConfigurationWizard.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="PresentationLayer\ControlPanel\SFMControlPanel.xml">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="PresentationLayer\FeedbackErrorPage.aspx" />
     <Content Include="js\feedback.js" />
     <Content Include="js\jquery.cookie.js" />
     <Content Include="PresentationLayer\View\EmailTemplate.html" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BusinessLayer\Commands\ConfigurationCommand.cs" />
+    <Compile Include="BusinessLayer\Commands\ControlPanelCommand.cs" />
     <Compile Include="BusinessLayer\Constants.cs" />
     <Compile Include="BusinessLayer\Model\EmailModel.cs" />
+    <Compile Include="BusinessLayer\Utils\ConfigurationsUtil.cs" />
+    <Compile Include="PresentationLayer\ControlPanel\ConfigurationWizardForm.cs" />
+    <Compile Include="PresentationLayer\ControlPanel\SFMControlPanel.cs" />
     <Compile Include="PresentationLayer\FeedbackErrorPage.aspx.cs">
       <DependentUpon>FeedbackErrorPage.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -92,9 +111,7 @@
       <SubType>Designer</SubType>
     </Content>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="css\" />
-  </ItemGroup>
+  <ItemGroup />
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>

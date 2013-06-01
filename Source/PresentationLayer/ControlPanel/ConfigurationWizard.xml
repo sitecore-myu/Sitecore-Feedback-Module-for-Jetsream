@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<control xmlns:def="Definition" xmlns="http://schemas.sitecore.net/Visual-Studio-Intellisense">
+  <ConfigurationWizard>
+    <WizardForm CodeBeside="Sitecore.Feedback.Module.PresentationLayer.ControlPanel.ConfigurationWizardForm, Sitecore.Feedback.Module" Submittable="false">
+      <WizardFormPage ID="Settings" Header="Sitecore Feedback Module" Text="Click 'Save' button to save your configurations." Icon="Applications/32x32/contract.png">
+        <WizardFormIndent>
+          <Groupbox Header="Email parameters">
+            <Border >
+              <GridPanel Columns="2" Width="100%" GridPanel.Height="100%" GridPanel.Valign="top" Cellspacing="5">
+                <Literal Text="ProjectName" />
+                <Edit ID="editProjectName" Width="100%" />
+                <Literal Text="Subject" />
+                <Memo ID="memoSubject" Width="100%" Height="50" GridPanel.Height="100%" />
+              </GridPanel>
+            </Border>
+          </Groupbox>
+          <Groupbox Header="List of Recipients">
+            <Border id="borderConfigurations" Width="100%">
+              <GridPanel id="gpConfigurations" Columns="2" Width="100%" GridPanel.Height="100%" GridPanel.Valign="top" Cellspacing="5">
+                <Literal id="lRecipient1" Text="E-mail №1" Value ="1"/>
+                <Edit ID="editRecipient1" Width="100%" />
+              </GridPanel>
+              <Border id="borderButtonAdd" Width="100%">
+                <Button ID="btnAdd" Click="BtnAddOnClick">Add</Button>
+                <Button ID="btnRemove" Visible="false" Click="BtnRemoveOnClick">Remove</Button>
+              </Border>
+            </Border>
+          </Groupbox>
+        </WizardFormIndent>
+      </WizardFormPage>
+      <WizardFormLastPage ID="LastPage" Icon="Applications/32x32/contract.png">
+        <GridPanel Cellpadding="2" Width="100%" Height="100%" Fixed="true">
+          <Border GridPanel.Style="padding:0px 0px 16px 0px; font-weight:bold">
+            <Literal Text="The wizard has completed. Click Finish to close the wizard."/>
+          </Border>
+        </GridPanel>
+      </WizardFormLastPage>
+    </WizardForm>
+  </ConfigurationWizard>
+</control>

@@ -8,7 +8,8 @@
     <title>Jetstream :: Error</title>
     <meta name="author">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <script type="text/javascript" src="/js/jquery-1.9.1.min.js"></script>
+    <script type="text/javascript" src="/sitecore modules/Shell/Sitecore Feedback Module/js/jquery-1.9.1.min.js"></script>
+    <script type="text/javascript" src="/sitecore modules/Shell/Sitecore Feedback Module/js/jquery.cookie.js"></script>
     <link rel="stylesheet" type="text/css" href="/css/jetstream.css">
 </head>
 <body class="base">
@@ -75,5 +76,69 @@
         </div>
 
     </form>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            BrowserVersion();
+            $.cookie("screen_width", screen.width, { path: '/' });
+            $.cookie("screen_height", screen.height, { path: '/' });
+            $(".log_link").click(function () {
+                $(".log_message").toggle('slow');
+                return false;
+            });
+        });
+
+        function BrowserVersion() {
+            var nAgt = navigator.userAgent;
+            var browserName = navigator.appName;
+            var fullVersion = '' + parseFloat(navigator.appVersion);
+            var nameOffset, verOffset, ix;
+            // In Opera, the true version is after "Opera" or after "Version"
+            if ((verOffset = nAgt.indexOf("Opera")) != -1) {
+                browserName = "Opera";
+                fullVersion = nAgt.substring(verOffset + 6);
+                if ((verOffset = nAgt.indexOf("Version")) != -1)
+                    fullVersion = nAgt.substring(verOffset + 8);
+            }
+                // In MSIE, the true version is after "MSIE" in userAgent
+            else if ((verOffset = nAgt.indexOf("MSIE")) != -1) {
+                browserName = "Internet Explorer";
+                fullVersion = nAgt.substring(verOffset + 5);
+            }
+                // In Chrome, the true version is after "Chrome" 
+            else if ((verOffset = nAgt.indexOf("Chrome")) != -1) {
+                browserName = "Google Chrome";
+                fullVersion = nAgt.substring(verOffset + 7);
+            }
+                // In Safari, the true version is after "Safari" or after "Version" 
+            else if ((verOffset = nAgt.indexOf("Safari")) != -1) {
+                browserName = "Safari";
+                fullVersion = nAgt.substring(verOffset + 7);
+                if ((verOffset = nAgt.indexOf("Version")) != -1)
+                    fullVersion = nAgt.substring(verOffset + 8);
+            }
+                // In Firefox, the true version is after "Firefox" 
+            else if ((verOffset = nAgt.indexOf("Firefox")) != -1) {
+                browserName = "Mozilla Firefox";
+                fullVersion = nAgt.substring(verOffset + 8);
+            }
+                // In most other browsers, "name/version" is at the end of userAgent 
+            else if ((nameOffset = nAgt.lastIndexOf(' ') + 1) <
+                      (verOffset = nAgt.lastIndexOf('/'))) {
+                browserName = nAgt.substring(nameOffset, verOffset);
+                fullVersion = nAgt.substring(verOffset + 1);
+                if (browserName.toLowerCase() == browserName.toUpperCase()) {
+                    browserName = navigator.appName;
+                }
+            }
+            if ((ix = fullVersion.indexOf(";")) != -1)
+                fullVersion = fullVersion.substring(0, ix);
+            if ((ix = fullVersion.indexOf(" ")) != -1)
+                fullVersion = fullVersion.substring(0, ix);
+
+            $.cookie("browser_name", browserName, { path: '/' });
+            $.cookie("browser_version", fullVersion, { path: '/' });
+        }
+
+    </script>
 </body>
 </html>

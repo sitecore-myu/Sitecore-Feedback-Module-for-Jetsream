@@ -46,7 +46,16 @@
       <Converter>
         <FileToEntryConverter>
           <Root>/</Root>
-          <Transforms />
+          <Transforms>
+            <InstallerConfigurationTransform>
+              <Options>
+                <BehaviourOptions>
+                  <ItemMode>Undefined</ItemMode>
+                  <ItemMergeMode>Undefined</ItemMergeMode>
+                </BehaviourOptions>
+              </Options>
+            </InstallerConfigurationTransform>
+          </Transforms>
         </FileToEntryConverter>
       </Converter>
       <Include />
@@ -74,6 +83,10 @@
         <x-item>/sitecore modules/Shell/Sitecore Feedback Module/Properties/</x-item>
         <x-item>/sitecore modules/Shell/Sitecore Feedback Module/Properties/AssemblyInfo.cs</x-item>
         <x-item>/sitecore modules/Shell/Sitecore Feedback Module/Sitecore.Feedback.Module.csproj</x-item>
+        <x-item>/sitecore modules/Shell/Sitecore Feedback Module/css/FeedbackErrorPage.css</x-item>
+        <x-item>/sitecore modules/Shell/Sitecore Feedback Module/img/sprite.png</x-item>
+        <x-item>/sitecore modules/Shell/Sitecore Feedback Module/PresentationLayer/ControlPanel/ConfigurationWizard.xml</x-item>
+        <x-item>/sitecore modules/Shell/Sitecore Feedback Module/PresentationLayer/ControlPanel/SFMControlPanel.xml</x-item>
       </Entries>
       <Converter>
         <FileToEntryConverter>
@@ -117,6 +130,40 @@
       <Exclude />
       <Name>Feedback Error Page</Name>
     </xfiles>
+    <xitems>
+      <Entries>
+        <x-item>/core/sitecore/content/Applications/SFM Control Panel/{DEC29CA8-8760-4CA3-A7A9-F35F9F06A7B1}/invariant/0</x-item>
+        <x-item>/core/sitecore/content/Applications/SFM Control Panel/Configurations/{80851749-5D79-4717-9B6D-1D27E3F0BB39}/invariant/0</x-item>
+        <x-item>/core/sitecore/content/Documents and settings/All users/Start menu/Right/SFM Control Panel/{ED6CFFAD-66BA-4FA1-AC25-9CAB831403DB}/invariant/0</x-item>
+        <x-item>/core/sitecore/layout/Layouts/Modules/SFM/SFM Control Panel/{214B8203-4992-4A04-8B10-7DD75BE0EC83}/invariant/0</x-item>
+        <x-item>/master/sitecore/content/Sitecore Feedback Module/{ECB51F1C-075B-4385-8486-049FD5AA678C}/invariant/0</x-item>
+        <x-item>/master/sitecore/content/Sitecore Feedback Module/Configurations/{204EE63A-1FA6-41C9-9666-7981AC6DBCB3}/invariant/0</x-item>
+        <x-item>/master/sitecore/templates/Sitecore Feedback Module/{3D277571-7A5C-44A6-8F07-64D8524638C0}/invariant/0</x-item>
+        <x-item>/master/sitecore/templates/Sitecore Feedback Module/Configurations/{398AAD3F-3B64-47B8-832B-353D5DEE9DFB}/invariant/0</x-item>
+        <x-item>/master/sitecore/templates/Sitecore Feedback Module/Configurations/Data/{25895776-1E3B-4DF4-865B-C04649B05276}/invariant/0</x-item>
+        <x-item>/master/sitecore/templates/Sitecore Feedback Module/Configurations/Data/ProjectName/{067B0C1C-B0D7-4E9C-AC1D-3EB9FE6F5462}/invariant/0</x-item>
+        <x-item>/master/sitecore/templates/Sitecore Feedback Module/Configurations/Data/Recipients/{2AA4FD07-B6C7-4F43-B9E4-3928B2FB62D9}/invariant/0</x-item>
+        <x-item>/master/sitecore/templates/Sitecore Feedback Module/Configurations/Data/Subject/{4C7FD075-CDB0-465C-BCDE-1B0B5CE19191}/invariant/0</x-item>
+      </Entries>
+      <SkipVersions>False</SkipVersions>
+      <Converter>
+        <ItemToEntryConverter>
+          <Transforms>
+            <InstallerConfigurationTransform>
+              <Options>
+                <BehaviourOptions>
+                  <ItemMode>Undefined</ItemMode>
+                  <ItemMergeMode>Undefined</ItemMergeMode>
+                </BehaviourOptions>
+              </Options>
+            </InstallerConfigurationTransform>
+          </Transforms>
+        </ItemToEntryConverter>
+      </Converter>
+      <Include />
+      <Exclude />
+      <Name>Configuration App</Name>
+    </xitems>
   </Sources>
   <Converter>
     <TrivialConverter>
