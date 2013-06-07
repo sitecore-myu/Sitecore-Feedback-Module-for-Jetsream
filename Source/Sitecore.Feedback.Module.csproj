@@ -71,8 +71,6 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="css\FeedbackErrorPage.css" />
-    <Content Include="img\sprite.png" />
     <Content Include="js\jquery-1.9.1.min.js" />
     <Content Include="PresentationLayer\ControlPanel\ConfigurationWizard.xml">
       <SubType>Designer</SubType>
@@ -91,6 +89,7 @@
     <Compile Include="BusinessLayer\Constants.cs" />
     <Compile Include="BusinessLayer\Model\EmailModel.cs" />
     <Compile Include="BusinessLayer\Utils\ConfigurationsUtil.cs" />
+    <Compile Include="BusinessLayer\Utils\SitecoreVersion.cs" />
     <Compile Include="PresentationLayer\ControlPanel\ConfigurationWizardForm.cs" />
     <Compile Include="PresentationLayer\ControlPanel\SFMControlPanel.cs" />
     <Compile Include="PresentationLayer\FeedbackErrorPage.aspx.cs">

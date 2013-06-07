@@ -20,24 +20,6 @@ namespace Sitecore.Feedback.Module.BusinessLayer.Configuration
   [AspNetCompatibilityRequirements(RequirementsMode = AspNetCompatibilityRequirementsMode.Required)]
   public class PostStep : IPostStep
   {
-    private static Item _configurationItem;
-    private static Item ConfigurationItem
-    {
-      get
-      {
-        if (_configurationItem == null)
-        {
-          var masterDb = Sitecore.Configuration.Factory.GetDatabase("master");
-          _configurationItem = masterDb.Items[new ID("{204EE63A-1FA6-41C9-9666-7981AC6DBCB3}")];
-          return _configurationItem;
-        }
-        else
-        {
-          return _configurationItem;
-        }
-      }
-      set { _configurationItem = value; }
-    }
 
     public void Run(ITaskOutput output, NameValueCollection metaData)
     {
@@ -47,7 +29,6 @@ namespace Sitecore.Feedback.Module.BusinessLayer.Configuration
       {
         Task parent = Task.Factory.StartNew(() =>
         {
-          Task.Factory.StartNew(ChangeConfigurations);
           Task.Factory.StartNew(ChangeWebConfig);
         });
 
@@ -57,18 +38,6 @@ namespace Sitecore.Feedback.Module.BusinessLayer.Configuration
       catch (Exception ex)
       {
         Log.Error("Sitecore Feedback Module Install:", ex, this);
-      }
-    }
-
-    private static void ChangeConfigurations()
-    {
-      using (new EditContext(ConfigurationItem))
-      {
-        ConfigurationItem.Editing.BeginEdit();
-        ConfigurationItem.Fields["ProjectName"].Value = "Project name";
-        ConfigurationItem.Fields["Subject"].Value = "Subject";
-        ConfigurationItem.Fields["Recipients"].Value = "someone@someone.net";
-        ConfigurationItem.Editing.EndEdit();
       }
     }
 

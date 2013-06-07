@@ -54,6 +54,9 @@
                                     <asp:RegularExpressionValidator Display="Dynamic" ControlToValidate="tbComment" ID="revComment" ValidationGroup="vgFeedback"
                                         ValidationExpression="^[\s\S]{1,1000}$" CssClass="validationError" runat="server" ErrorMessage="Maximum 1000 characters allowed."></asp:RegularExpressionValidator>
                                 </div>
+                                <div>
+                                    <asp:Label class="error" runat="server" ID="lblErrorMessage" Visible="False"></asp:Label>
+                                </div>
                                 <div class="button-group">
                                     <asp:Button CssClass="primary-grad btn rounded" runat="server" ID="btnSendFeedback" OnClick="btnSendFeedback_Click" Text="Send feedback" ValidationGroup="vgFeedback" />
                                 </div>

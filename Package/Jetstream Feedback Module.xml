@@ -71,7 +71,6 @@
         <x-item>/sitecore modules/Shell/Sitecore Feedback Module/BusinessLayer/</x-item>
         <x-item>/sitecore modules/Shell/Sitecore Feedback Module/BusinessLayer/Configuration/</x-item>
         <x-item>/sitecore modules/Shell/Sitecore Feedback Module/BusinessLayer/Model/</x-item>
-        <x-item>/sitecore modules/Shell/Sitecore Feedback Module/css/</x-item>
         <x-item>/sitecore modules/Shell/Sitecore Feedback Module/js/</x-item>
         <x-item>/sitecore modules/Shell/Sitecore Feedback Module/js/feedback.js</x-item>
         <x-item>/sitecore modules/Shell/Sitecore Feedback Module/js/jquery.cookie.js</x-item>
@@ -83,8 +82,6 @@
         <x-item>/sitecore modules/Shell/Sitecore Feedback Module/Properties/</x-item>
         <x-item>/sitecore modules/Shell/Sitecore Feedback Module/Properties/AssemblyInfo.cs</x-item>
         <x-item>/sitecore modules/Shell/Sitecore Feedback Module/Sitecore.Feedback.Module.csproj</x-item>
-        <x-item>/sitecore modules/Shell/Sitecore Feedback Module/css/FeedbackErrorPage.css</x-item>
-        <x-item>/sitecore modules/Shell/Sitecore Feedback Module/img/sprite.png</x-item>
         <x-item>/sitecore modules/Shell/Sitecore Feedback Module/PresentationLayer/ControlPanel/ConfigurationWizard.xml</x-item>
         <x-item>/sitecore modules/Shell/Sitecore Feedback Module/PresentationLayer/ControlPanel/SFMControlPanel.xml</x-item>
       </Entries>

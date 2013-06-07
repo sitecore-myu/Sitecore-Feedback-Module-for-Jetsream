@@ -28,5 +28,10 @@ namespace Sitecore.Feedback.Module.BusinessLayer.Model
     public string ErrorLogStackTrace { get; set; }
 
     public string LastVisitPagesList { get; set; }
+
+    public string ProjectVersion { get; set; }
+
+    public string SitecoreVersion { get; set; }
+
   }
 }

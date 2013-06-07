@@ -1,4 +1,6 @@
 ﻿
+using Sitecore.StringExtensions;
+
 namespace Sitecore.Feedback.Module.PresentationLayer
 {
   using Microsoft.VisualBasic.Devices;
@@ -46,6 +48,8 @@ namespace Sitecore.Feedback.Module.PresentationLayer
       }
       catch (Exception ex)
       {
+        lblErrorMessage.Text = "The Feedback message is not sended!";
+        lblErrorMessage.Visible = true;
         Log.Error("Send FeedBack: ", ex, this);
       }
     }
@@ -69,9 +73,17 @@ namespace Sitecore.Feedback.Module.PresentationLayer
       var srHtmlTemplate = new StreamReader(Server.MapPath(Constants.EmailTemplate));
       var htmlTemplate = srHtmlTemplate.ReadToEnd();
       var computerInfo = new ComputerInfo();
-      var browser = Request.Browser;
       var feedbackProjectName = ConfigurationsUtil.GetProjectName();
-
+      var assembly = AppDomain.CurrentDomain.GetAssemblies().SingleOrDefault(a => a.FullName.Split(',')[0] == "Jetstream.Website");
+      var aboutVersionProject = string.Empty;
+      if (assembly != null)
+      {
+        var fileVersion = System.Diagnostics.FileVersionInfo.GetVersionInfo(assembly.Location);
+        var version = assembly.GetName().Version;
+         aboutVersionProject = "{0} {1}.{2}.{3} (rev.{4})".FormatWith(
+          fileVersion.ProductName, version.Major, version.Minor, version.Build,
+          fileVersion.FileVersion.Replace(".", string.Empty));
+      }
       var emailModel = new EmailModel
       {
         ProjectName = feedbackProjectName,
@@ -86,7 +98,9 @@ namespace Sitecore.Feedback.Module.PresentationLayer
         ErrorLogMessage = Session["ErrorLog_Message"].ToString(),
         ErrorLogSource = Session["ErrorLog_Source"].ToString(),
         ErrorLogStackTrace = Session["ErrorLog_StackTrace"].ToString(),
-        LastVisitPagesList = GetLastVisits()
+        LastVisitPagesList = GetLastVisits(),
+        ProjectVersion = aboutVersionProject,
+        SitecoreVersion = Sitecore.Configuration.About.VersionInformation()
       };
 
       var dicEmailModel = typeof(EmailModel).GetProperties(BindingFlags.Public | BindingFlags.Instance)
