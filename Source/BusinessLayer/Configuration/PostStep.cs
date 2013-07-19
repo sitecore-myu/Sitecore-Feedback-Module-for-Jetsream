@@ -27,13 +27,7 @@ namespace Sitecore.Feedback.Module.BusinessLayer.Configuration
       Assert.ArgumentNotNull(metaData, "metaData");
       try
       {
-        Task parent = Task.Factory.StartNew(() =>
-        {
-          Task.Factory.StartNew(ChangeWebConfig);
-        });
-
-        parent.Wait();
-        JobContext.SendMessage("sfm:controlpanel");
+        ChangeWebConfig();
       }
       catch (Exception ex)
       {

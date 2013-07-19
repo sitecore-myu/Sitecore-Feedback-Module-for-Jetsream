@@ -1,8 +1,9 @@
-﻿
-namespace Sitecore.Feedback.Module.BusinessLayer.Configuration
+﻿namespace Sitecore.Feedback.Module.BusinessLayer.Configuration
 {
+  using Sitecore.Data;
   using Sitecore.Diagnostics;
   using Sitecore.Pipelines.RenderLayout;
+  using Sitecore.Shell.DeviceSimulation;
   using Sitecore.Web;
   using System;
   using System.Collections.Specialized;
@@ -13,6 +14,8 @@ namespace Sitecore.Feedback.Module.BusinessLayer.Configuration
 
   public class InjectJs
   {
+    private const string DeviceCookieName = "sc_device";
+
     public void Process(RenderLayoutArgs args)
     {
       if (Context.Site.Name == "shell")
@@ -23,18 +26,25 @@ namespace Sitecore.Feedback.Module.BusinessLayer.Configuration
         var head = WebUtil.FindControlOfType(Context.Page.Page, typeof(HtmlHead));
         if (head != null)
         {
-          var filesJs = Directory.GetFiles(HttpContext.Current.Server.MapPath(Constants.FolderJs));
-          foreach (var fileJs in filesJs)
+          if (!head.TemplateSourceDirectory.Contains("speak"))
           {
-            var extension = Path.GetExtension(fileJs);
-            if (extension != null && extension.Contains(".js"))
+            var currentSimulatorId = DeviceSimulationUtil.GetCurrentSimulatorId();
+            if (currentSimulatorId.IsNull || currentSimulatorId == NoneSimulator.Id || currentSimulatorId==ID.Null)
             {
-              var fileName = Path.GetFileNameWithoutExtension(fileJs);
-              if (fileName != null && fileName.IndexOf('-') > 1)
-                fileName = fileName.Remove(fileName.IndexOf('-'));
-              if (!IsFileExistOnPage(head, fileName))
-              {
-                IncludeJsToControl(head, Constants.FolderJs + Path.GetFileName(fileJs));
+                var filesJs = Directory.GetFiles(HttpContext.Current.Server.MapPath(Constants.FolderJs));
+                foreach (var fileJs in filesJs)
+                {
+                  var extension = Path.GetExtension(fileJs);
+                  if (extension != null && extension.Contains(".js"))
+                  {
+                    var fileName = Path.GetFileNameWithoutExtension(fileJs);
+                    if (fileName != null && fileName.IndexOf('-') > 1)
+                      fileName = fileName.Remove(fileName.IndexOf('-'));
+                    if (!IsFileExistOnPage(head, fileName))
+                    {
+                      IncludeJsToControl(head, Constants.FolderJs + Path.GetFileName(fileJs));
+                    }
+                  }
               }
             }
           }
@@ -42,8 +52,8 @@ namespace Sitecore.Feedback.Module.BusinessLayer.Configuration
       }
       catch (Exception exception)
       {
-        Log.Error("Feedback Module, InjectJs: ", exception,this);
-      }  
+        Log.Error("Feedback Module, InjectJs: ", exception, this);
+      }
     }
 
     public Control IncludeJsToControl(Control control, string jsfile)
@@ -91,5 +101,6 @@ namespace Sitecore.Feedback.Module.BusinessLayer.Configuration
         throw new Exception("Could not get HTML from " + url + ": " + ex.Message, ex);
       }
     }
+
   }
 }

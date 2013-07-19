@@ -39,6 +39,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.SqlServer.SmoExtended, Version=10.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL" />
     <Reference Include="Microsoft.VisualBasic" />
     <Reference Include="Newtonsoft.Json">
       <HintPath>..\bin\Newtonsoft.Json.dll</HintPath>
@@ -47,6 +48,10 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\..\bin\Sitecore.Client.dll</HintPath>
       <Private>False</Private>
+    </Reference>
+    <Reference Include="Sitecore.ExperienceExplorer.Business, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Bin\Sitecore.ExperienceExplorer.Business.dll</HintPath>
     </Reference>
     <Reference Include="Sitecore.Kernel">
       <HintPath>..\bin\Sitecore.Kernel.dll</HintPath>

@@ -1,4 +1,4 @@
-﻿$(document).ready(function () {
+﻿jQuery(document).ready(function () {
     
     var countHistorySave = 10;
     
@@ -17,8 +17,8 @@
 
     try {
         
-        var userPages = $.cookie("feedback_UserVisitPages");
-        var lastVisitPage = $.cookie("lastVisitPage");
+        var userPages = jQuery.cookie("feedback_UserVisitPages");
+        var lastVisitPage = jQuery.cookie("lastVisitPage");
         if (userPages == null || userPages == '' || userPages == undefined)
             userPages = { "Pages": [] };
         else 
@@ -46,8 +46,8 @@
                 userPages.Pages = sortJson(userPages.Pages, 'id', 'desc');
             }
         }
-        $.cookie("feedback_UserVisitPages", JSON.stringify(userPages), { path: '/' });
-        $.cookie("lastVisitPage", lastVisitPage, { path: '/' });
+        jQuery.cookie("feedback_UserVisitPages", JSON.stringify(userPages), { path: '/' });
+        jQuery.cookie("lastVisitPage", lastVisitPage, { path: '/' });
     } catch (e) {
         //alert(e);
     }
